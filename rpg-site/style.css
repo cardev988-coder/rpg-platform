@@ -1,49 +1,63 @@
-body{
+/* ===== Reset e estilo base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     background-color: #0f0f1b;
     color: #fafbf6;
     font-family: "Perfect DOS VGA 437", monospace;
-    margin: 0;
-    padding: 0;
 }
 
+/* ===== Menu ===== */
 .menu {
     display: flex;
-    justify-content: space-between;
-    align-items: center;    
+    align-items: center;
+    justify-content: space-between; /* mantém título e profile nas extremidades */
     padding: 20px 40px;
-    position: relative;
     border-bottom: 2px solid #c6b7be;
+    position: relative; /* necessário para posicionamento absoluto da lista */
 }
 
 .menu h1 {
-    margin: 0;
     font-size: 30px;
-    width: 150px; /* largura fixa */
+}
+.menu h1 a {
+    text-decoration: none; /* remove sublinhado */
+    color: #fafbf6; /* mantém a cor do texto */
+    transition: opacity 0.3s; /* efeito ao passar o mouse */
+}
+
+.menu h1 a:hover {
+    opacity: 0.7;
 }
 
 .menu-list {
     display: flex;
     list-style: none;
-    margin: 0;
-    padding: 0;
     gap: 30px;
-    position: absolute;
+
+    position: absolute; /* permite centralizar independente do título/profile */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%);    
 }
 
-.menu-list li {
-    cursor: pointer;
-    transition: opacity 0.3s;
+.menu-list li a {
+    color: #fafbf6;
+    text-decoration: none;
     font-size: 18px;
+    transition: opacity 0.3s;
+    cursor: pointer;
 }
 
-.menu-list li:hover {
+.menu-list li a:hover {
     opacity: 0.7;
 }
 
+/* ===== Profile ===== */
 .profile-icon {
-    width: 150px; /* mesma largura do título */
     display: flex;
     justify-content: flex-end;
 }
@@ -54,13 +68,40 @@ body{
     border-radius: 50%;
     object-fit: cover;
 }
+.profile-icon a:hover{
+    opacity: 0.7;
+}
 
+/* ===== Parágrafo inicial ===== */
 body > p {
-    padding: 20px 20px; /* mais espaço em cima */
-    margin: 0;
-    font-size: 18px; /* aumenta o tamanho da fonte */
-    text-align: center; /* centraliza o texto */
-    max-width: 800px; /* limita a largura para melhor leitura */
-    margin: 40px auto; /* centraliza o bloco */
-    line-height: 1.6; /* melhora o espaçamento entre linhas */
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-list {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .profile-icon {
+        margin-top: 10px;
+    }
+
+    .menu h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
 }
