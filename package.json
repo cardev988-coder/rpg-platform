@@ -4,7 +4,7 @@
   "description": "this projects aims to offer a place where people can play RPG togeter.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
